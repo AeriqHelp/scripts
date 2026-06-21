@@ -18,9 +18,9 @@ end
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 local Window = WindUI:CreateWindow({
-    Title = "[CRESENT] Demonology PRO",
+    Title = "[CRESENT] Demonology",
     Icon = "door-open",
-    Author = "Ducko355",
+    Author = "Team CRESENT",
 })
 
 local Tag = Window:Tag({
@@ -297,7 +297,7 @@ function EquipPhotoCamera()
 end
 
 function AlreadyTakenCheck(Obj)
-	return Obj:GetAttribute("Ducko355AlreadyTakenPhoto") == true
+	return Obj:GetAttribute("PhotoTaken") == true
 end
 
 -- ESP Rendering Loops
@@ -334,9 +334,9 @@ function UpdatePlrEsp()
 		for _, p in pairs(PS:GetPlayers()) do
 			if p ~= plr and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
 				local hrp = p.Character.HumanoidRootPart
-				if not hrp:FindFirstChild("Ducko355PlrBil") then
+				if not hrp:FindFirstChild("CRESENTUI") then
 					local Bil = Instance.new("BillboardGui", hrp)
-					Bil.Name = "Ducko355PlrBil"
+					Bil.Name = "CresentUI"
 					Bil.Size = UDim2.new(0, 100, 0, 40)
 					Bil.AlwaysOnTop = true
 					local txt = Instance.new("TextLabel", Bil)
@@ -358,8 +358,8 @@ function UpdatePlrEsp()
 			if p.Character then
 				local hrp = p.Character:FindFirstChild("HumanoidRootPart")
 				if hrp then
-					local e1 = hrp:FindFirstChild("Ducko355PlrBil")
-					local e2 = hrp:FindFirstChild("Ducko355PlrEsp")
+					local e1 = hrp:FindFirstChild("CRESENTUI")
+					local e2 = hrp:FindFirstChild("CRESP")
 					if e1 then e1:Destroy() end
 					if e2 then e2:Destroy() end
 				end
@@ -500,7 +500,7 @@ local TakeStarsPhotoButton = MainTab:Button({
             local ItemType = nil
             for _, v in pairs(workspace.Items:GetChildren()) do
                 if v:GetAttribute("DisplayName") == "Burnt Cross" and not AlreadyTakenCheck(v) then
-                    v:SetAttribute("Ducko355AlreadyTakenPhoto", true)
+                    v:SetAttribute("PhotoTaken", true)
                     Item = v
                     ItemType = "BurntCross"
                     break
@@ -594,27 +594,17 @@ local EvidenceEspToggleElement = EspTab:Toggle({
     end
 })
 
-
--- CREDITS & LINKS TAB EXPLICIT ASSIGNMENTS
-local YoutubeLinkButton = LinksTab:Button({
-    Title = "Copy YouTube Channel Link",
-    Desc = "Copies creator channel link instantly to clipboard",
-    Callback = function()
-        setclipboard("https://www.youtube.com/channel/UCSMOQh8gGh1dCiwEY9ce2Uw")
-    end
-})
-
 local DiscordLinkButton = LinksTab:Button({
     Title = "Copy Discord Link",
     Desc = "Copies active Discord community invite server destination",
     Callback = function()
-        setclipboard("https://discord.gg/mNTEpwnkZC")
+        setclipboard("https://discord.gg/kZpqqA29Rs")
     end
 })
 
 local DesignCreditsSection = LinksTab:Code({
     Title = "Credits Details",
-    Code = "Script originally configured by Ducko355.\nTranslated complete elements into WindUI window library smoothly."
+    Code = "Scripted By Cresent."
 })
 
 --------------------------------------------------------------
